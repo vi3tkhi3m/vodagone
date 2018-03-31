@@ -1,4 +1,4 @@
-package datasource.entity;
+package domain;
 
 public class UserSubscriptions {
 
@@ -7,7 +7,7 @@ public class UserSubscriptions {
     private int user_id;
     private String startDate;
     private String doubling;
-    private String shareable;
+    private boolean shareable;
     private String status;
     private int price;
 
@@ -51,11 +51,11 @@ public class UserSubscriptions {
         this.doubling = doubling;
     }
 
-    public String getShareable() {
+    public boolean isShareable() {
         return shareable;
     }
 
-    public void setShareable(String shareable) {
+    public void setShareable(boolean shareable) {
         this.shareable = shareable;
     }
 

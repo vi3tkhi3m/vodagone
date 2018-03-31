@@ -1,11 +1,9 @@
 package store;
 
-import datasource.entity.Subscriber;
-import datasource.entity.Subscription;
+import domain.Subscription;
 import exceptions.DataMapperException;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface SubscriptionMapper {
 

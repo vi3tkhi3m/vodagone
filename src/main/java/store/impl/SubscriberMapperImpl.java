@@ -1,13 +1,15 @@
 package store.impl;
 
-import datasource.entity.Subscriber;
+import domain.Subscriber;
 import exceptions.DataMapperException;
 import store.SubscriberMapper;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@ApplicationScoped
 public class SubscriberMapperImpl implements SubscriberMapper {
 
     private List<Subscriber> subscribers = new ArrayList<>();

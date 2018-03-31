@@ -1,19 +1,13 @@
 package store.impl;
 
-import datasource.entity.Subscriber;
-import datasource.entity.Subscription;
+import domain.Subscription;
 import exceptions.DataMapperException;
-import org.springframework.stereotype.Component;
 import store.SubscriptionMapper;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Default;
-import javax.inject.Named;
-import javax.inject.Singleton;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Default
 @ApplicationScoped

@@ -9,17 +9,14 @@ import java.util.logging.Logger;
 
 public class ConnectionManager {
 
-    private static String url = "jdbc:mysql://localhost/vodagone";
-    private static String driverName = "com.mysql.jdbc.Driver";
-    private static String username = "root";
-    private static String password = "P@ssw0rd";
+    private static DatabaseProperties databaseProperties = new DatabaseProperties();
     private static Connection con;
 
     public static Connection getConnection() {
         try {
-            Class.forName(driverName);
+            Class.forName(databaseProperties.driver());
             try {
-                con = DriverManager.getConnection(url, username, password);
+                con = DriverManager.getConnection(databaseProperties.connectionString());
             } catch (SQLException ex) {
                 System.out.println("Failed to create the database connection.");
             }
@@ -28,5 +25,7 @@ public class ConnectionManager {
         }
         return con;
     }
+
+
 
 }

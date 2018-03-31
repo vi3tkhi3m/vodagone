@@ -1,7 +1,6 @@
 package services;
 
 import datasource.LoginDao;
-import datasource.LoginDaoImpl;
 import functions.func;
 
 import javax.inject.Inject;

@@ -1,6 +1,6 @@
 package rest.dto;
 
-import datasource.entity.Subscription;
+import domain.Subscription;
 
 import java.util.ArrayList;
 

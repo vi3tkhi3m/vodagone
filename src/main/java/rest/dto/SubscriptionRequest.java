@@ -1,12 +1,9 @@
-package datasource.entity;
+package rest.dto;
 
-public class Subscription {
-
+public class SubscriptionRequest {
     private int id;
     private String aanbieder;
     private String dienst;
-
-    public Subscription() {};
 
     public int getId() {
         return id;
@@ -31,5 +28,4 @@ public class Subscription {
     public void setDienst(String dienst) {
         this.dienst = dienst;
     }
-
 }

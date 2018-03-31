@@ -1,20 +1,14 @@
 package store.impl;
 
-import datasource.entity.UserSubscriptions;
+import domain.UserSubscriptions;
 import exceptions.DataMapperException;
 import store.UserSubscriptionMapper;
 
-import javax.ejb.ConcurrencyManagement;
-import javax.ejb.ConcurrencyManagementType;
-import javax.ejb.Singleton;
 import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.inject.Default;
-import java.sql.SQLException;
 import java.util.*;
 
-@Default
 @ApplicationScoped
-public class UserSubscriptionMapperImpl implements UserSubscriptionMapper{
+public class UserSubscriptionMapperImpl implements UserSubscriptionMapper {
 
     private ArrayList<UserSubscriptions> userSubscriptions = new ArrayList<>();
 
@@ -32,11 +26,9 @@ public class UserSubscriptionMapperImpl implements UserSubscriptionMapper{
     @Override
     public List<UserSubscriptions> find(int user_id) {
 
-//        if(userSubscriptions.isEmpty()) {
-//            return null;
-//        }
-
         List<UserSubscriptions> userSubscription = new ArrayList<>();
+
+        System.out.println("List size of USMAPPER: " + userSubscriptions.size());
 
         for(UserSubscriptions us: userSubscriptions) {
             if(us.getUser_id() == user_id) {
@@ -49,13 +41,12 @@ public class UserSubscriptionMapperImpl implements UserSubscriptionMapper{
 
     @Override
     public void insert(UserSubscriptions userSubscriptionToBeInserted) throws DataMapperException {
-//        if (!this.getUserSubscriptions().contains(userSubscriptionToBeInserted)) {
-//            this.getUserSubscriptions().add(userSubscriptionToBeInserted);
-//
-//        } else {
-//            throw new DataMapperException("Subscription [" + userSubscriptionToBeInserted.getId() + "] already exists");
-//        }
-        userSubscriptions.add(userSubscriptionToBeInserted);
+        if (!this.getUserSubscriptions().contains(userSubscriptionToBeInserted)) {
+            this.getUserSubscriptions().add(userSubscriptionToBeInserted);
+
+        } else {
+            throw new DataMapperException("Subscription [" + userSubscriptionToBeInserted.getId() + "] already exists");
+        }
     }
 
     @Override
@@ -63,7 +54,7 @@ public class UserSubscriptionMapperImpl implements UserSubscriptionMapper{
         if (this.getUserSubscriptions().contains(userSubscriptionToBeUpdated)) {
             final int index = this.getUserSubscriptions().indexOf(userSubscriptionToBeUpdated);
             this.getUserSubscriptions().set(index, userSubscriptionToBeUpdated);
-
+            System.out.print("Usersubscription is geupdate!");
         } else {
             throw new DataMapperException("Subscription [" + userSubscriptionToBeUpdated.getId() + "] is not found");
         }

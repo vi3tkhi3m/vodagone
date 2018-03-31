@@ -1,9 +1,8 @@
-package datasource;
+package datasource.impl;
 
-import constants.NamedQueries;
-import datasource.entity.UserSubscriptions;
+import datasource.util.NamedQueries;
+import datasource.LoginDao;
 import datasource.util.ConnectionManager;
-import rest.dto.LoginRequest;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -97,7 +96,7 @@ public class LoginDaoImpl implements LoginDao {
                 return rs.getString("token");
             }
         } catch (SQLException e) {
-            System.out.print("Cant get token from database with user" + user + ". " + e);
+            System.out.print("Cant get id from database with user: " + user + ". " + e);
         } finally {
             closeConnection();
         }
@@ -121,6 +120,7 @@ public class LoginDaoImpl implements LoginDao {
         }
         return 0;
     }
+
 
     public void closeConnection() {
         if(con != null) {

@@ -1,6 +1,6 @@
 package store;
 
-import datasource.entity.Subscriber;
+import domain.Subscriber;
 import exceptions.DataMapperException;
 
 import java.util.List;

@@ -1,13 +1,13 @@
 package rest.dto;
 
-public class AbonnementDetailsResponse {
+public class SubscriptionDetailsResponse {
     private int id;
     private String aanbieder;
     private String dienst;
-    private String prijs;
+    private int prijs;
     private String startDatum;
     private String verdubbeling;
-    private Boolean deelbaar;
+    private boolean deelbaar;
     private String status;
 
     public int getId() {
@@ -34,12 +34,12 @@ public class AbonnementDetailsResponse {
         this.dienst = dienst;
     }
 
-    public String getPrijs() {
+    public int getPrijs() {
         return prijs;
     }
 
-    public void setPrijs(String prijs) {
-        this.prijs = prijs + ",- per maand";
+    public void setPrijs(int prijs) {
+        this.prijs = prijs;
     }
 
     public String getStartDatum() {
@@ -58,11 +58,11 @@ public class AbonnementDetailsResponse {
         this.verdubbeling = verdubbeling;
     }
 
-    public Boolean getDeelbaar() {
+    public boolean isDeelbaar() {
         return deelbaar;
     }
 
-    public void setDeelbaar(Boolean deelbaar) {
+    public void setDeelbaar(boolean deelbaar) {
         this.deelbaar = deelbaar;
     }
 
