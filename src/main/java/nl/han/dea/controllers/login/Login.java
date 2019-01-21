@@ -23,9 +23,8 @@ public class Login {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response login(LoginRequest request) throws SQLException {
-        LoginResponse loginResponse = new LoginResponse();
-
         if(loginService.doLogin(request.getUser(), request.getPassword())) {
+            LoginResponse loginResponse = new LoginResponse();
             loginResponse.setUser(request.getUser());
             loginResponse.setToken(loginService.getTokenFromUser(request.getUser()));
             return Response.ok().entity(loginResponse).build();
